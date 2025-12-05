@@ -22,12 +22,24 @@ import { auth } from "@clerk/nextjs/server";
  * ```
  */
 export function createClerkSupabaseClient() {
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+  if (!supabaseUrl || !supabaseKey) {
+    throw new Error(
+      "Supabase 환경 변수가 설정되지 않았습니다. NEXT_PUBLIC_SUPABASE_URL과 NEXT_PUBLIC_SUPABASE_ANON_KEY를 확인해주세요."
+    );
+  }
 
   return createClient(supabaseUrl, supabaseKey, {
     async accessToken() {
-      return (await auth()).getToken();
+      try {
+        const token = await (await auth()).getToken();
+        return token ?? null;
+      } catch (error) {
+        // 비로그인 상태에서는 null 반환 (anon key로 작동)
+        return null;
+      }
     },
   });
 }
