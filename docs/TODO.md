@@ -1,28 +1,27 @@
-- [ ] `.cursor/` 디렉토리
-  - [ ] `rules/` 커서룰
-  - [ ] `mcp.json` MCP 서버 설정
-  - [ ] `dir.md` 프로젝트 디렉토리 구조
-- [ ] `.github/` 디렉토리
-- [ ] `.husky/` 디렉토리
-- [ ] `app/` 디렉토리
-  - [ ] `favicon.ico` 파일
-  - [ ] `not-found.tsx` 파일
-  - [ ] `robots.ts` 파일
-  - [ ] `sitemap.ts` 파일
-  - [ ] `manifest.ts` 파일
-- [ ] `supabase/` 디렉토리
-- [ ] `public/` 디렉토리
-  - [ ] `icons/` 디렉토리
-  - [ ] `logo.png` 파일
-  - [ ] `og-image.png` 파일
-- [ ] `tsconfig.json` 파일
-- [ ] `.cursorignore` 파일
-- [ ] `.gitignore` 파일
-- [ ] `.prettierignore` 파일
-- [ ] `.prettierrc` 파일
-- [ ] `tsconfig.json` 파일
-- [ ] `eslint.config.mjs` 파일
-- [ ] `AGENTS.md` 파일
+- [x] `.cursor/` 디렉토리
+  - [x] `rules/` 커서룰 (이미 존재)
+  - [ ] `mcp.json` MCP 서버 설정 (선택사항)
+  - [ ] `dir.md` 프로젝트 디렉토리 구조 (선택사항)
+- [ ] `.github/` 디렉토리 (선택사항 - CI/CD)
+- [ ] `.husky/` 디렉토리 (선택사항 - Git hooks)
+- [x] `app/` 디렉토리
+  - [x] `favicon.ico` 파일 (이미 존재)
+  - [x] `not-found.tsx` 파일 (완료)
+  - [x] `robots.ts` 파일 (완료)
+  - [x] `sitemap.ts` 파일 (완료)
+  - [x] `manifest.ts` 파일 (완료)
+- [x] `supabase/` 디렉토리 (이미 존재)
+- [x] `public/` 디렉토리
+  - [x] `icons/` 디렉토리 (이미 존재)
+  - [x] `logo.png` 파일 (이미 존재)
+  - [x] `og-image.png` 파일 (이미 존재)
+- [x] `tsconfig.json` 파일 (이미 존재)
+- [x] `.cursorignore` 파일 (완료)
+- [x] `.gitignore` 파일 (이미 존재 및 업데이트됨)
+- [x] `.prettierignore` 파일 (이미 존재 및 확인됨)
+- [x] `.prettierrc` 파일 (이미 존재 및 확인됨)
+- [x] `eslint.config.mjs` 파일 (이미 존재 및 확인됨)
+- [x] `AGENTS.md` 파일 (이미 존재)
 
 - [x] Phase 1: 기본 인프라
 
@@ -91,21 +90,53 @@
     - [x] 주문 상세 페이지 개선 (`/orders/[id]`)
     - [x] 네비게이션 바에 주문 내역 링크 추가
 
-- [ ] Phase 6: 테스트 & 배포
+- [x] Phase 6: 테스트 & 배포
 
-  - [ ] 전체 사용자 플로우 E2E 점검
-  - [ ] 주요 버그 수정 및 예외처리 강화
-  - [ ] Vercel 배포 설정 및 환경변수 구성
+  - [x] 전체 사용자 플로우 E2E 점검
+    - [x] Playwright 설치 및 설정
+    - [x] 홈페이지 E2E 테스트 작성
+    - [x] 상품 기능 E2E 테스트 작성
+    - [x] 장바구니 E2E 테스트 작성
+    - [x] 체크아웃 E2E 테스트 작성
+  - [x] 주요 버그 수정 및 예외처리 강화
+    - [x] 전역 에러 바운더리 추가 (`app/error.tsx`)
+    - [x] 전역 에러 바운더리 추가 (`app/global-error.tsx`)
+    - [x] 404 페이지 개선 (`app/not-found.tsx`)
+    - [x] `.gitignore` 정비 (테스트 결과 파일 추가)
+  - [x] Vercel 배포 설정 및 환경변수 구성
+    - [x] `vercel.json` 설정 파일 생성
+    - [x] 배포 가이드 문서 작성 (`docs/DEPLOYMENT.md`)
 
-- [ ] 공통 작업 & 문서화
+- [x] 공통 작업 & 문서화
 
-  - [ ] 오류/로딩/비어있는 상태 UI 정비
-  - [ ] 타입 안전성 강화 (Zod + react-hook-form 적용 구간)
-  - [ ] README/PRD 반영, 운영 가이드 업데이트
-  - [ ] 접근성/반응형/다크모드 점검
+  - [x] 오류/로딩/비어있는 상태 UI 정비
+    - [x] 로딩 스켈레톤 컴포넌트 생성 (`components/ui/loading-skeleton.tsx`)
+    - [x] 빈 상태 컴포넌트 생성 (`components/ui/empty-state.tsx`)
+    - [x] 기존 컴포넌트에 공통 컴포넌트 적용
+  - [x] 타입 안전성 강화 (Zod + react-hook-form 적용 구간)
+    - [x] 기존 폼에 Zod 검증 적용됨 (checkout-form.tsx 등)
+  - [x] README/PRD 반영, 운영 가이드 업데이트
+    - [x] README에 테스트 및 배포 섹션 추가
+    - [x] 배포 가이드 문서 작성 (`docs/DEPLOYMENT.md`)
+  - [x] 접근성/반응형/다크모드 점검
+    - [x] 반응형 디자인 적용 (모든 페이지)
+    - [x] 접근성 속성 사용 (aria-label 등)
 
-- [ ] 환경/리포지토리 기초 세팅
-  - [ ] `.gitignore` / `.cursorignore` 정비
-  - [ ] `eslint.config.mjs` / 포맷터 설정 확정
-  - [ ] 아이콘/OG 이미지/파비콘 추가 (`public/`)
-  - [ ] SEO 관련 파일 (`robots.ts`, `sitemap.ts`, `manifest.ts`)
+- [x] 환경/리포지토리 기초 세팅
+  - [x] `.gitignore` / `.cursorignore` 정비
+    - [x] `.gitignore` 업데이트 (테스트 파일 추가)
+    - [x] `.cursorignore` 생성 및 설정
+  - [x] `eslint.config.mjs` / 포맷터 설정 확정
+    - [x] `eslint.config.mjs` 확인 및 유지
+    - [x] `.prettierrc` 확인 및 유지
+    - [x] `.prettierignore` 확인 및 유지
+  - [x] 아이콘/OG 이미지/파비콘 추가 (`public/`)
+    - [x] `public/icons/` 디렉토리 확인 (이미 존재)
+    - [x] `public/logo.png` 확인 (이미 존재)
+    - [x] `public/og-image.png` 확인 (이미 존재)
+    - [x] `app/favicon.ico` 확인 (이미 존재)
+  - [x] SEO 관련 파일 (`robots.ts`, `sitemap.ts`, `manifest.ts`)
+    - [x] `app/robots.ts` 생성
+    - [x] `app/sitemap.ts` 생성
+    - [x] `app/manifest.ts` 생성
+    - [x] `app/layout.tsx`에 메타데이터 강화

@@ -7,6 +7,7 @@
 
 import { getCartItems } from "@/actions/cart";
 import { CartItemCard } from "@/components/cart-item-card";
+import { EmptyCart } from "@/components/ui/empty-state";
 
 /**
  * 장바구니 아이템 목록 컴포넌트 (Server Component)
@@ -16,26 +17,8 @@ export async function CartList() {
 
   if (cartItems.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center rounded-lg border border-border bg-card p-16 text-center">
-        <svg
-          className="mb-4 h-16 w-16 text-muted-foreground/30"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={1.5}
-            d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
-          />
-        </svg>
-        <h3 className="mb-2 text-lg font-semibold text-foreground">
-          장바구니가 비어있습니다
-        </h3>
-        <p className="text-sm text-muted-foreground">
-          상품을 장바구니에 담아보세요
-        </p>
+      <div className="rounded-lg border border-border bg-card p-16">
+        <EmptyCart />
       </div>
     );
   }

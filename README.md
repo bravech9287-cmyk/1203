@@ -302,6 +302,15 @@ pnpm start
 
 # 린팅
 pnpm lint
+
+# E2E 테스트 실행
+pnpm test:e2e
+
+# E2E 테스트 UI 모드
+pnpm test:e2e:ui
+
+# E2E 테스트 (헤드 모드)
+pnpm test:e2e:headed
 ```
 
 ## Clerk + Supabase 통합 가이드
@@ -447,6 +456,53 @@ saas-template/
 - **`components/providers/sync-user-provider.tsx`**: 앱 전역에서 사용자 동기화 실행
 - **`CLAUDE.md`**: Claude Code를 위한 프로젝트 가이드
 
+## 테스트
+
+프로젝트는 Playwright를 사용하여 E2E 테스트를 수행합니다.
+
+### 테스트 실행
+
+```bash
+# 모든 E2E 테스트 실행
+pnpm test:e2e
+
+# UI 모드로 테스트 실행 (대화형)
+pnpm test:e2e:ui
+
+# 헤드 모드로 테스트 실행 (브라우저 표시)
+pnpm test:e2e:headed
+```
+
+### 테스트 구조
+
+```
+tests/
+└── e2e/
+    ├── homepage.spec.ts      # 홈페이지 테스트
+    ├── products.spec.ts      # 상품 기능 테스트
+    ├── cart.spec.ts          # 장바구니 테스트
+    └── checkout.spec.ts      # 체크아웃 테스트
+```
+
+## 배포
+
+Vercel을 사용한 배포 가이드는 다음 문서를 참고하세요:
+
+📖 **[배포 가이드 보기](./docs/DEPLOYMENT.md)**
+
+### 빠른 배포
+
+```bash
+# Vercel CLI 설치
+pnpm add -g vercel
+
+# 배포
+vercel
+
+# 프로덕션 배포
+vercel --prod
+```
+
 ## 추가 리소스
 
 - [Next.js 15 문서](https://nextjs.org/docs)
@@ -454,3 +510,5 @@ saas-template/
 - [Supabase 문서](https://supabase.com/docs)
 - [shadcn/ui 문서](https://ui.shadcn.com/)
 - [Tailwind CSS v4 문서](https://tailwindcss.com/docs)
+- [Playwright 문서](https://playwright.dev/)
+- [Vercel 문서](https://vercel.com/docs)
